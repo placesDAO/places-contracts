@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 520 520">
+	<!-- STYLE THE TEXT -->
+	<style>
+		.text { font-family: monospace; font-size: 16px; fill: white; }
+		.name { font-size: 18px; font-weight: 600; }
+		.blue { fill: #2681FF; }
+		.black { fill: black; }
+	</style>
+	
+	<!-- STYLE THE TEXT BACKGROUND FILL -->
+	<defs>
+		<filter x="0" y="0" width="1" height="1" id="blue">
+			<feFlood flood-color="#2681FF" />
+			<feComposite in="SourceGraphic" operator="xor" />
+		</filter>
+	 </defs>
+	 
+	<!-- BG -->
+	<rect width="100%" height="100%" fill="black"/>
+		
+	<!-- PIN -->
+	<!-- (circle draws the circle, rect makes the pin by rotating a square) -->
+	<circle cx="260" cy="260" r="164" fill="#102440" stroke="#none"/> <!-- Dark Blue BG Circle -->
+	<circle cx="260" cy="260" r="12" fill="black" stroke="#2681FF" stroke-width="4"/> <!-- Blue Pin Circle -->
+	<rect x="252" y="220" width="16" height="16" transform="rotate(45 260 228)" fill="#2681FF"/> <!-- Pin -->
+
+	<!--PLACE NAME -->
+	<text x="50%" y="224" text-anchor="middle" filter="url(#blue)" class="text name">Barclay's Center</text> <!-- Blue BG behind text -->
+	<text x="50%" y="224" text-anchor="middle" class="text name black">Barclay's Center</text> <!-- Black shadow -->
+	<text x="50%" y="223" text-anchor="middle" class="text name">Barclay's Center</text> <!-- White text -->
+	
+	<!-- ATTRIBUTES -->
+	<g class="text">
+		<text x="24" y="34">Arena</text> <!-- Attribute1 -->
+		<text x="24" y="58">Basketball</text> <!--  Attribute2 -->
+		<text x="24" y="82">Live Events</text> <!--  Attribute3 -->
+	</g>
+	
+	<!-- INFORMATION -->
+	<g class="text">
+		<text x="24" y="398">Downtown Brooklyn</text> <!--  Sublocality -->
+		<text x="24" y="422"><tspan>Brooklyn</tspan><tspan>, </tspan><tspan>NY</tspan></text> <!--  Locality -->
+		<text x="24" y="446">620 Atlantic Ave</text> <!-- Address -->
+		<text x="24" y="470">Elevation 14m</text> <!-- Elevation -->
+		<text x="24" y="494" class="blue">40.682663, -73.975431</text> <!-- GEO -->
+	</g>
+</svg>
