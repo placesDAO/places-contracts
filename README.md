@@ -6,7 +6,7 @@ Please visit the [Places](https://places.xyz) website for the latest updates and
 
 The Places contracts and website are open source and available under the MIT License.
 
-# Development
+# 🚀 Gettings Started
 
 We're excited for you to use places! The PlacesDAO itself is interested in funding…
 
@@ -19,6 +19,8 @@ We're excited for you to use places! The PlacesDAO itself is interested in fundi
 - List-building dapp for guides and tours
 - Derivative place tokens that can be minted and claimed by verified IRL place owners
 - Generative geographic visualizations
+ 
+ Contributions are welcome and we invite you to look at the contracts. Note, the `Places.sol` contract is immutable and can not be modified.
  
 # 📍 Places
 
@@ -40,11 +42,11 @@ Represents place information for a geographic location.
 
 Represents a geographic coordinate with altitude.
 
-Places provide location information in two formats, string and integers. Since double floating points are not a native type in Solidity, we encode this data up to 14 decimal places and providing means to decode without losing precision but while also allowing the ability to perform computation on-chain. We do provide MAX & MIN integer values for latitude and longitude coordinates.
+Places provide location information in two formats, string and integers. Since double floating points are not a native type in Solidity, we encode location data up to 14 decimal places and provide a means to decode without losing precision but while also allowing the ability to perform computation on-chain. To bound coordinates positive (North and East) or negative (South and West) use the `MAX_LATITUDE_INT`, `MIN_LATITUDE_INT`, `MAX_LONGITUDE_INT`, and `MIN_LONGITUDE_INT` integer constants.
 
 Latitude and longitude values are in degrees under the WGS 84 reference frame. Altitude values are in meters.
 
-* hasAltitude – a boolean that indicates the validity of the altitude values
+* hasAltitude – a boolean that indicates the validity of the altitude values, when false no altitude is available.
 
 ## Location Integer Encoding
 
@@ -61,7 +63,7 @@ Decoding a location can be done using `GEO_RESOLUTION_INT` as a divisor.
 
 ## Location Strings
 
-WYSIWYG. We added strings to allow casting and printing of data.
+WYSIWYG. We added strings for more future proofing, allowing casting and printing of data.
 
 * latitude – string representing the latitude coordinate in degrees under the WGS 84 reference frame
 * longitude – string representing the longitude coordinate in degrees under the WGS 84 reference frame
@@ -76,6 +78,5 @@ WYSIWYG. We added strings to allow casting and printing of data.
 # 🙌 Influences
 - https://nouns.wtf
 - https://lootproject.com
-- https://artblocks.io
 
 WGMI.
