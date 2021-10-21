@@ -51,6 +51,7 @@ contract Places is
     event PlaceCreated(uint256 tokenId);
     event PlaceBurned(uint256 tokenId);
     event MintFeeUpdated(uint256 mintFee);
+    event NeighborhoodTreasuryEnabledUpdated(bool isEnabled);
     event GuestlistEnabledUpdated(bool isEnabled);
     event GroundersGiftingEnabledUpdated(bool isEnabled);
 
@@ -87,6 +88,7 @@ contract Places is
 
     bool private _isGuestlistEnabled;
     bool private _isGroundersGiftingEnabled;
+    bool private _isNeighborhoodTreasuryEnabled;
 
     /**
      * @notice Require that the sender is a grounders.
@@ -233,6 +235,18 @@ contract Places is
         emit MintFeeUpdated(mintFee);
     }
 
+    /**
+     * @notice Toggle neighborhood treasury.
+     * @dev Only callable by the grounders.
+     */
+    function setNeighborhoodTreasury(bool isNeighborhoodTreasuryEnabled)
+        external
+        onlyGrounders
+    {
+        _isNeighborhoodTreasuryEnabled = isNeighborhoodTreasuryEnabled;
+        emit NeighborhoodTreasuryEnabledUpdated(isNeighborhoodTreasuryEnabled);
+    }
+
     constructor(
         address payable placesDAO,
         address grounders,
@@ -248,6 +262,7 @@ contract Places is
 
         _isGuestlistEnabled = false;
         _isGroundersGiftingEnabled = true;
+        _isNeighborhoodTreasuryEnabled = true;
         _mintFee = 0;
 
         _randomGrounderOffset =
@@ -310,6 +325,24 @@ contract Places is
     }
 
     /**
+     * @notice Requests state of grounder gifting.
+     */
+    function getGroundersGiftingEnabled() public view returns (bool isEnabled) {
+        return _isGroundersGiftingEnabled;
+    }
+
+    /**
+     * @notice Requests state of neighorhood treasury sending.
+     */
+    function getNeighborhoodTreasuryEnabled()
+        public
+        view
+        returns (bool isEnabled)
+    {
+        return _isNeighborhoodTreasuryEnabled;
+    }
+
+    /**
      * @notice Generate a random integer.
      */
     function random(string memory input) internal pure returns (uint256) {
@@ -346,19 +379,26 @@ contract Places is
         }
 
         if (_mintFee > 0) {
-            address payable neighborhoodTreasury = _placesProvider.getTreasury(
-                _tokenIdCounter.current()
-            );
-
             uint256 weiAmount = msg.value;
-            uint256 neighborhoodAmount = (weiAmount * 250) / 1000;
-            uint256 daoAmount = weiAmount - neighborhoodAmount;
 
-            bool sentPlacesDAO = _placesDAO.send(daoAmount);
-            bool sentNeighborhood = neighborhoodTreasury.send(
-                neighborhoodAmount
-            );
-            require(sentPlacesDAO && sentNeighborhood, "Send failed");
+            if (_isNeighborhoodTreasuryEnabled) {
+                uint256 neighborhoodAmount = (weiAmount * 250) / 1000;
+                uint256 daoAmount = weiAmount - neighborhoodAmount;
+
+                address payable neighborhoodTreasury = _placesProvider
+                    .getTreasury(_tokenIdCounter.current());
+
+                (bool sentPlacesDAO, ) = _placesDAO.call{value: daoAmount}("");
+                require(sentPlacesDAO, "DAO deposit failed");
+
+                (bool sentNeighborhood, ) = neighborhoodTreasury.call{
+                    value: neighborhoodAmount
+                }("");
+                require(sentNeighborhood, "Neighborhood deposit failed");
+            } else {
+                (bool sentPlacesDAO, ) = _placesDAO.call{value: weiAmount}("");
+                require(sentPlacesDAO, "DAO deposit failed");
+            }
         }
 
         safeMint(_msgSender());
