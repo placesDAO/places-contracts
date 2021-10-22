@@ -28,7 +28,7 @@ We're excited for you to use places! The PlacesDAO itself is interested in fundi
 
 # 🚶‍♀️ Walkthrough
 
-The core `Places.sol` contract is immutable and can not be modified in order to maintain it's address. It communicates with `PlacesDescriptor` and `PlacesProvider` contracts. The `PlacesDescriptor` generates the svg on chain for the ERC-721 tokenURI – no images, tiles, or third party sources in the loop. The `PlacesProvider` contract maintains a variety of "drop" contracts that share on chain information about places and communicate that back.
+The core `Places.sol` contract is immutable and can not be modified in order to maintain it's address. It communicates with `PlacesDescriptor` and `PlacesProvider` contracts. The `PlacesDescriptor` generates the svg on chain for the ERC-721 tokenURI – no images, tiles, or third party sources in the loop. The `PlacesProvider` contract maintains a network of "drop" contracts that share on chain information about places and communicate that back.
 
 What's unique about the Places project is that all information is stored on chain. This means all place data is in SSTORE and provided on-demand. Here is a breakdown of that data and what it means.
 
