@@ -2,7 +2,7 @@
 
 [Places](https://places.xyz) is an experiment to establish geographic locations as non-fungible tokens on the Ethereum blockchain. The project aims to create long-term value by curating an ever-growing collection of specific places, submitted and verified by our community, for the purpose of providing them an immutable home on chain.
 
-Please visit the [Places](https://places.xyz) website for the latest updates and details.
+Please visit the [Places website](https://places.xyz) for the latest updates and details.
 
 Contributions are welcome and we invite you to look at the contracts and website, all are open source and available under the MIT License.
 
@@ -28,7 +28,7 @@ We're excited for you to use places! The PlacesDAO itself is interested in fundi
 
 # 🚶‍♀️ Walkthrough
 
-The core `Places.sol` contract is immutable and can not be modified in order to maintain it's address. It communicates with a `PlacesDescriptor` contract which generates the svg on chain for the ERC-721 tokenURI. The `PlacesProvider` contract maintains a variety of "drop" contracts that share on chain information about places and communicate that back. 
+The core `Places.sol` contract is immutable and can not be modified in order to maintain it's address. It communicates with `PlacesDescriptor` and `PlacesProvider` contracts. The `PlacesDescriptor` generates the svg on chain for the ERC-721 tokenURI – no images, tiles, or third party sources in the loop. The `PlacesProvider` contract maintains a variety of "drop" contracts that share on chain information about places and communicate that back. 
 
 # 📍 Places
 
