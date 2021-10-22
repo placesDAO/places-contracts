@@ -8,21 +8,14 @@
     "@truffle/hdwallet-provider": "^1.5.1",
     "babel-register": "^6.26.0",
     "base64-sol": "^1.1.0",
-    "chai-as-promised": "^7.1.1",
-    "chai-bignumber": "4.2.0",
     "truffle": "5.4.9",
-    "truffle-contract-size": "^2.0.1",
-    "web3": "1.5.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "truffle-contract-size": "^2.0.1"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "4.2.0",
     "dotenv": "^10.0.0",
     "truffle-plugin-verify": "^0.5.15"
   }
