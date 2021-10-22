@@ -1,5 +1,5 @@
 {
-  "name": "Places DAO",
+  "name": "Places",
   "version": "0.1.0",
   "description": "Places is an experiment to establish geographic locations as non-fungible tokens on the Ethereum blockchain. The project aims to create long-term value by curating an ever-growing collection of specific places, submitted and verified by our community, for the purpose of providing them an immutable home on chain.",
   "author": "Places DAO",
@@ -8,15 +8,14 @@
     "@truffle/hdwallet-provider": "^1.5.1",
     "babel-register": "^6.26.0",
     "base64-sol": "^1.1.0",
-    "truffle": "5.4.9",
-    "truffle-contract-size": "^2.0.1"
+    "truffle": "5.4.9"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "chai-bignumber": "4.2.0",
     "dotenv": "^10.0.0",
+    "truffle-contract-size": "^2.0.1",
     "truffle-plugin-verify": "^0.5.15"
   }
 }
