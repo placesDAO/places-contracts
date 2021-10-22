@@ -32,7 +32,33 @@ The core `Places.sol` contract is immutable and can not be modified in order to 
 
 What's unique about the Places project is that all information is stored on chain. This means all place data is in SSTORE and provided on-demand. Here is a breakdown of that data and what it means.
 
-# 📍 Places
+```
+struct Location {
+    int256 latitudeInt;
+    int256 longitudeInt;
+    int256 altitudeInt;
+    bool hasAltitude;
+    string latitude;
+    string longitude;
+    string altitude;
+}
+
+struct Place {
+    string name;
+    string streetAddress;
+    string sublocality;
+    string locality;
+    string subadministrativeArea;
+    string administrativeArea;
+    string country;
+    string postalCode;
+    string countryCode;
+    Location location;
+    string[3] attributes;
+}
+```
+
+## 📍 Places
 
 Represents place information for a geographic location.
 
@@ -48,7 +74,7 @@ Represents place information for a geographic location.
 * location – geographic location of the place, see Location type
 * attributes – string array of attributes describing the place
 
-# 🛰 Locations
+## 🛰 Locations
 
 Represents a geographic coordinate with altitude.
 
