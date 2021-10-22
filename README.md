@@ -4,7 +4,7 @@
 
 Please visit the [Places](https://places.xyz) website for the latest updates and details.
 
-The Places contracts and website are open source and available under the MIT License.
+Contributions are welcome and we invite you to look at the contracts and website, all are open source and available under the MIT License.
 
 | Contract | Etherscan |
 |---------|---------------------------------------------------------------|
@@ -12,7 +12,7 @@ The Places contracts and website are open source and available under the MIT Lic
 | PlacesDescriptor | [0x7C4fAd970E51fBE5CFCa2097C3AA559e3E0aEAf8](https://etherscan.io/address/0x7C4fAd970E51fBE5CFCa2097C3AA559e3E0aEAf8) |
 | PlacesProvider | [0x5219C11e18934AADB4DDa41E3485bD79DAE08F10](https://etherscan.io/address/0x5219C11e18934AADB4DDa41E3485bD79DAE08F10#code) |
 
-# 🚀 Gettings Started
+# 💡 Ideas
 
 We're excited for you to use places! The PlacesDAO itself is interested in funding…
 
@@ -25,8 +25,10 @@ We're excited for you to use places! The PlacesDAO itself is interested in fundi
 - List-building dapp for guides and tours
 - Derivative place tokens that can be minted and claimed by verified IRL place owners
 - Generative geographic visualizations
- 
- Contributions are welcome and we invite you to look at the contracts. Note, the `Places.sol` contract is immutable and can not be modified.
+
+# 🚶‍♀️ Walkthrough
+
+The core `Places.sol` contract is immutable and can not be modified in order to maintain it's address. It communicates with a `PlacesDescriptor` contract which generates the svg on chain for the ERC-721 tokenURI. The `PlacesProvider` contract maintains a variety of "drop" contracts that share on chain information about places and communicate that to `Places.sol`. 
 
 # 📍 Places
 
