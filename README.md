@@ -6,6 +6,12 @@ Please visit the [Places](https://places.xyz) website for the latest updates and
 
 The Places contracts and website are open source and available under the MIT License.
 
+| Contract | Etherscan |
+|---------|---------------------------------------------------------------|
+| Places | [0xC9CA129DC3a299aF68A215d85771630aec4C3C2b](https://etherscan.io/address/0xC9CA129DC3a299aF68A215d85771630aec4C3C2b#code) |
+| PlacesDescriptor | [0x7C4fAd970E51fBE5CFCa2097C3AA559e3E0aEAf8](https://etherscan.io/address/0x7C4fAd970E51fBE5CFCa2097C3AA559e3E0aEAf8) |
+| PlacesProvider | [0x5219C11e18934AADB4DDa41E3485bD79DAE08F10](https://etherscan.io/address/0x5219C11e18934AADB4DDa41E3485bD79DAE08F10#code) |
+
 # 🚀 Gettings Started
 
 We're excited for you to use places! The PlacesDAO itself is interested in funding…
@@ -21,7 +27,7 @@ We're excited for you to use places! The PlacesDAO itself is interested in fundi
 - Generative geographic visualizations
  
  Contributions are welcome and we invite you to look at the contracts. Note, the `Places.sol` contract is immutable and can not be modified.
- 
+
 # 📍 Places
 
 Represents place information for a geographic location.
