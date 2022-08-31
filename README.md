@@ -1,8 +1,8 @@
 # Places DAO
 
-[Places](https://places.xyz) is an experiment to establish geographic locations as non-fungible tokens on the Ethereum blockchain. The project aims to create long-term value by curating an ever-growing collection of specific places, submitted and verified by our community, for the purpose of providing them an immutable home on chain.
+[Places](https://places.xyz) is an experiment to establish geographic locations as NFTs on the [Ethereum](https://ethereum.org/) blockchain. The project aims to curate an ever-growing collection of specific places, submitted and verified by our community, for the purpose of providing free ([cc0](https://creativecommons.org/share-your-work/public-domain/cc0/)) queryable place data stored fully on-chain.
 
-Please visit the [Places website](https://places.xyz) for the latest updates and details.
+Visit the [Places website](https://places.xyz) for the latest updates and details.
 
 Contributions are welcome and we invite you to look at the contracts and website, all are open source and available under the MIT License.
 
@@ -12,23 +12,9 @@ Contributions are welcome and we invite you to look at the contracts and website
 | PlacesDescriptor | [0x7C4fAd970E51fBE5CFCa2097C3AA559e3E0aEAf8](https://etherscan.io/address/0x7C4fAd970E51fBE5CFCa2097C3AA559e3E0aEAf8) |
 | PlacesProvider | [0x5219C11e18934AADB4DDa41E3485bD79DAE08F10](https://etherscan.io/address/0x5219C11e18934AADB4DDa41E3485bD79DAE08F10#code) |
 
-# 💡 Ideas
-
-We're excited for you to use places! The PlacesDAO itself is interested in funding…
-
-- An API for searching and discovering Places
-- A tool or marketplace for trading Places, especially as the project grows to many neighborhoods and communities
-- PFP + Places remixes
-- Systems that provide verifiable proof-of-location, proof-of-sale, or proof-of-attendance at Places
-- Systems for routing and waypoint navigation
-- Augmented reality experiences at Places
-- List-building dapp for guides and tours
-- Derivative place tokens that can be minted and claimed by verified IRL place owners
-- Generative geographic visualizations
-
 # 🚶‍♀️ Walkthrough
 
-The core `Places.sol` contract is immutable and can not be modified in order to maintain it's address. It communicates with `PlacesDescriptor` and `PlacesProvider` contracts. The `PlacesDescriptor` generates the svg on chain for the ERC-721 tokenURI – no images, tiles, or third party sources in the loop. The `PlacesProvider` contract maintains a network of "drop" contracts that share on chain information about places and communicate that back.
+The core `Places.sol` contract is immutable and can not be modified. It communicates with the `PlacesDescriptor` and `PlacesProvider` contracts. The `PlacesDescriptor` generates the svg on chain for the ERC-721 tokenURI – no images, tiles, or third party sources in the loop. The `PlacesProvider` contract maintains a network of "drop" contracts that share on chain information about places and communicate that back.
 
 What's unique about the Places project is that all information is stored on chain. This means all place data is in SSTORE and provided on-demand. Here is a breakdown of that data and what it means.
 
@@ -110,9 +96,3 @@ WYSIWYG. We added strings for more future proofing, allowing casting and printin
 - https://docs.opensea.io/docs/metadata-standards
 - https://github.com/platinprotocol/solidityGEO
 - https://trufflesuite.com
-
-# 🙌 Influences
-- https://nouns.wtf
-- https://lootproject.com
-
-WGMI.
